@@ -1,0 +1,37 @@
+<div (scroll)="onScroll($event)">
+  <nz-layout>
+    <nz-header>
+      <div class="logo">
+        <img nz-image width="120px" nzSrc="../../../assets/img/OnflyLogo.png" alt="" />
+      </div>
+    </nz-header>
+    <nz-content>
+      <app-header-search></app-header-search>
+      <div class="breadcumb-filter-container">
+        <nz-breadcrumb>
+          <nz-breadcrumb-item>Ínicio</nz-breadcrumb-item>
+          <nz-breadcrumb-item>Hotéis</nz-breadcrumb-item>
+          <ng-container *ngIf="hotelsCardsServiceService.city && hotelsCardsServiceService.city.length > 5">
+            <nz-breadcrumb-item>Hospedagem em {{hotelsCardsServiceService.city}}</nz-breadcrumb-item>
+          </ng-container>
+          <ng-container *ngIf="!hotelsCardsServiceService.city && hotelsCardsServiceService.city.length < 5">
+            <nz-breadcrumb-item>Todos</nz-breadcrumb-item>
+          </ng-container>
+        </nz-breadcrumb>
+        <nz-select ngModel="Selecione um filtro" (ngModelChange)="onChange($event)">
+          <nz-option nzValue="Selecione um filtro" nzLabel="Selecione um filtro" aria-selected="true">Selecione um
+            filtro</nz-option>
+          <nz-option nzValue="Melhor avaliados" nzLabel="Melhor avaliados">Melhor avaliados</nz-option>
+          <nz-option nzValue="Mais recomendados" nzLabel="Mais recomendados">Mais recomendados</nz-option>
+        </nz-select>
+      </div>
+      <div class="inner-content" *ngIf="!hotelsCardsServiceService.listIsEmpty">
+        <app-hotel-cards></app-hotel-cards>
+      </div>
+      <div *ngIf="hotelsCardsServiceService.listIsEmpty" class="no-results">
+        <h2 nz-typography>Não há hotéis disponíveis nessa localização</h2>
+      </div>
+    </nz-content>
+    <nz-footer>Ant Design ©2023 Implement with ❤️ By 🌐<b>Onfly</b> </nz-footer>
+  </nz-layout>
+</div>

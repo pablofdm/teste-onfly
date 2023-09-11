@@ -1,0 +1,88 @@
+.hotel-card {
+  border-radius: 8px;
+  background-color: #fff;
+  height: 242px;
+  overflow: hidden;
+}
+
+.hotel-picture {
+  cursor: pointer;
+  image-rendering: optimizeSpeed;
+  display: block;
+}
+
+.hotel-picture-drawer {
+  cursor: pointer;
+}
+
+.card-container {
+  display: flex;
+  height: 15.125rem;
+  max-height: 15.125rem;
+}
+
+.carousel-container {
+  width: 23.125rem;
+}
+
+.icons-container {
+  display: inline-flex;
+  justify-content: space-between;
+  width: 6rem;
+}
+
+.icons-container-drawer {
+  display: inline-flex;
+  justify-content: space-between;
+  width: 42rem;
+  text-align: center;
+  align-items: baseline;
+}
+
+.icon-drawer {
+  margin-left: -1.2rem;
+}
+
+.drawer-carousel {
+  width: max-content;
+}
+
+.price-container {
+  display: flex;
+  align-items: baseline;
+}
+
+.spacing {
+  padding: 1rem;
+  width: 34.5rem;
+  max-width: 34.5rem;
+
+}
+
+.select-button {
+  padding: 0 2rem;
+}
+
+.facilities-container {
+  margin-inline: auto;
+  display: table;
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+}
+
+.description-container {
+  height: 12rem;
+}
+
+.divider {
+  height: 17.9em;
+  border-left: 3px solid rgba(0, 0, 0, 0.06);
+}
+
+[nz-carousel-content] {
+  text-align: center;
+  height: 10rem;
+  line-height: 10rem;
+  color: #fff;
+  overflow: hidden;
+}

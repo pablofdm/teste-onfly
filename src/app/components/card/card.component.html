@@ -1,0 +1,86 @@
+<div class="hotel-card" *ngIf="hotelsCardsServiceService.AllHotelsTogether$.getValue().length > 0">
+  <div class="card-container">
+    <div class="carousel-container">
+      <nz-carousel [nzEffect]="'scrollx'" [nzAutoPlay]="false" [nzDotPosition]="'bottom'">
+        <div nz-carousel-content *ngFor="let image of card.images; let i = index">
+          <img [src]="image" height="242px" alt="hotel-picture" class="hotel-picture" />
+          <div>
+            <h1>{{i/card.images.length}}</h1>
+          </div>
+        </div>
+      </nz-carousel>
+    </div>
+    <div class="spacing">
+      <h2 nz-typography>{{card.name}}</h2>
+      <span nz-typography nzType="secondary">{{card.address.fullAddress}}</span>
+      <div>
+        <nz-rate [ngModel]="card.stars"></nz-rate> <nz-divider nzType="vertical"></nz-divider>
+        <div class="icons-container">
+          <span nz-icon nzType="wifi" nzTheme="outline"></span>
+          <span nz-icon nzType="shopping" nzTheme="outline"></span>
+          <span nz-icon nzType="pushpin" nzTheme="outline"></span>
+          <span nz-icon nzType="reconciliation" nzTheme="fill"></span>
+        </div>
+        <br><br>
+        <ng-container *ngIf="card.hasAgreement">
+          <nz-tag [nzColor]="'#808080'">Reembolsável</nz-tag>
+        </ng-container>
+      </div>
+    </div>
+    <nz-divider nzType="vertical" class="divider"></nz-divider>
+    <div class="spacing">
+      <span nz-typography nzType="secondary">A partir de:</span>
+      <br>
+      <div class="price-container">
+        R$<h2 nz-typography>{{card.price * 4}},00</h2>
+      </div>
+      <span nz-typography nzType="secondary">R${{card.price * 4 / 2}},00/noite</span>
+      <br>
+      <span nz-typography nzType="secondary">Impostos inclusos</span>
+      <br><br>
+      <button nz-button nzType="primary" [nzSize]="'large'" nzShape="round" class="select-button" (click)="open()">
+        Selecionar
+      </button>
+    </div>
+  </div>
+</div>
+
+<nz-drawer [nzClosable]="false" [nzVisible]="visible" nzPlacement="right" nzSize="large" (nzOnClose)="close()">
+
+  <ng-container *nzDrawerContent>
+    <span nz-typography>({{card.stars}})</span><nz-rate [ngModel]="card.stars"></nz-rate> <nz-divider
+      nzType="vertical"></nz-divider>
+    <h2 nz-typography>{{card.name}}</h2>
+    <span nz-typography nzType="secondary">{{card.address.fullAddress}}</span>
+    <nz-carousel [nzEffect]="'scrollx'" [nzAutoPlay]="false" [nzDotPosition]="'bottom'" style="height: 16rem">
+      <div nz-carousel-content *ngFor="let image of card.images" class="drawer-carousel">
+        <img [src]="image" alt="hotel-picture" class="hotel-picture-drawer" style="max-width: 44rem;" />
+      </div>
+    </nz-carousel>
+    <h2 nz-typography>Facilidades do hotel</h2>
+    <nz-divider></nz-divider>
+    <div class="icons-container-drawer">
+      <span nz-icon [nzType]="'wifi'" nzTheme="outline"></span><span nz-typography class="icon-drawer"
+        nzType="secondary">Internet banda
+        larga</span>
+      <span nz-icon [nzType]="'shopping'" nzTheme="outline"></span><span nz-typography class="icon-drawer"
+        nzType="secondary">Ar-condicionado</span>
+      <span nz-icon [nzType]="'reconciliation'" nzTheme="fill"></span><span nz-typography class="icon-drawer"
+        nzType="secondary">Piscina
+        gratuita</span>
+      <span nz-icon [nzType]="'pushpin'" nzTheme="outline"></span><span nz-typography class="icon-drawer"
+        nzType="secondary">Academia
+        gratuita</span>
+    </div>
+    <div class="facilities-container">
+      <button nz-button nzType="primary" nzSize="large" nzShape="round">
+        Mostar todas faciidades
+      </button>
+    </div>
+    <div>
+      <span nz-typography class="description-container">
+        {{card.description}}
+      </span>
+    </div>
+  </ng-container>
+</nz-drawer>

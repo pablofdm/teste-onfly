@@ -1,0 +1,39 @@
+.logo {
+  background: rgba(255, 255, 255, 0.2);
+  float: left;
+}
+
+[nz-menu] {
+  line-height: 64px;
+}
+
+nz-breadcrumb {
+  margin: 16px 0;
+}
+
+nz-content {
+  padding: 0 50px;
+}
+
+nz-footer {
+  text-align: center;
+}
+
+.breadcumb-filter-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+}
+
+.ant-layout-header {
+  background-color: #fff;
+}
+
+.inner-content {
+  min-height: 17.5rem;
+}
+
+.no-results {
+  margin: 0 auto;
+  display: table;
+}

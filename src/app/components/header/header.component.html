@@ -1,0 +1,22 @@
+<nz-card class="search-card" nzTitle="Reservar hotel">
+  <form nz-form [formGroup]="searchForm">
+    <nz-form-item>
+      <nz-form-control>
+        <nz-form-label nzFor="email">Cidade<b style="color:red; ">*</b></nz-form-label>
+        <input placeholder='Digite uma cidade...' formControlName="search" nz-input (ngModelChange)="onChange($event)"
+          [nzAutocomplete]="auto" />
+        <nz-autocomplete [nzDataSource]="filteredOptions" #auto />
+      </nz-form-control>
+    </nz-form-item>
+  </form>
+
+  <button nz-button nzType="primary" [nzSize]="'large'" nzShape="round"
+    (click)="searchForm.controls['search'].value !== '' ? submitForm() : resetForm()" class="button-submit"
+    *ngIf="searchForm.controls['search'].value">
+    <span nz-icon
+      [nzType]="hotelsCardsServiceService.AllHotelsTogether$.getValue().length <= 0 && !hotelsCardsServiceService.listIsEmpty ? 'loading' : 'search'"
+      nzTheme="outline"></span>
+    {{searchForm.controls['search'].value !== '' ? 'Buscar' :
+    'Alterar busca'}}
+  </button>
+</nz-card>
