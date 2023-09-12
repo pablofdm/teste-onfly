@@ -3,7 +3,7 @@
     <div class="carousel-container">
       <nz-carousel [nzEffect]="'scrollx'" [nzAutoPlay]="false" [nzDotPosition]="'bottom'">
         <div nz-carousel-content *ngFor="let image of card.images; let i = index">
-          <img [src]="image" height="242px" alt="hotel-picture" class="hotel-picture" />
+          <img [src]="image" height="242px" width="363px" alt="hotel-picture" class="hotel-picture" priority fill />
           <div>
             <h1>{{i/card.images.length}}</h1>
           </div>

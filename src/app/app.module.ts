@@ -1,6 +1,7 @@
 import { NzIconModule } from 'ng-zorro-antd/icon';
 import { CUSTOM_ELEMENTS_SCHEMA, NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { NgOptimizedImage } from '@angular/common';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -13,7 +14,6 @@ import { HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MainComponent } from './components/main/main.component';
 import { HeaderComponent } from './components/header/header.component';
-import { NzPageHeaderModule } from 'ng-zorro-antd/page-header';
 import { DemoNgZorroAntdModule } from './ng-zorro-antd-module';
 import { HotelCardsComponent } from './components/hotelcards/hotelcards.component';
 import { CardComponent } from './components/card/card.component';
@@ -41,11 +41,10 @@ registerLocaleData(pt);
     HttpClientModule,
     ReactiveFormsModule,
     NzIconModule,
+    NgOptimizedImage,
     [NzIconModule.forChild(icons)]
 
   ],
-  exports: [NzPageHeaderModule],
-
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
   providers: [
     { provide: NZ_I18N, useValue: pt_PT }

@@ -17,7 +17,6 @@ export class MainComponent {
     let max = document.documentElement.scrollHeight;
     if (pos == max) {
       this.hotelsCardsServiceService.itemsPerPage += this.hotelsCardsServiceService.itemsPerPage;
-      console.log(this.hotelsCardsServiceService.AllHotelsTogether$.getValue())
     }
   }
 
